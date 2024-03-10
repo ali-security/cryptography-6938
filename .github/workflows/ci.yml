@@ -64,10 +64,21 @@ jobs:
       - name: set mtimes for rust dirs
         uses: ./.github/actions/mtime-fix
       - name: Setup python
-        id: setup-python
+        id: setup-python-actions
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.PYTHON.VERSION }}
+        if: matrix.PYTHON.VERSION == '3.12-dev'
+      - name: Setup python
+        id: setup-python-matteo
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.PYTHON.VERSION }}
+        if: matrix.PYTHON.VERSION == '3.12-dev'
+      - name: Setup python
+        id: setup-python
+        run: |
+          echo "python-version"=${{ matrix.PYTHON.VERSION }} >> $GITHUB_ENV
       - name: Setup rust
         uses: dtolnay/rust-toolchain@52e69531e6f69a396bc9d1226284493a5db969ff
         with:
