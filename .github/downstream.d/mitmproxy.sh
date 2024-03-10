@@ -2,10 +2,9 @@
 
 case "${1}" in
     install)
-        git clone --depth=1 https://github.com/mitmproxy/mitmproxy
+        git clone --depth=1 --branch=10.2.3 https://github.com/mitmproxy/mitmproxy
         cd mitmproxy
         git rev-parse HEAD
-        git checkout 10.2.3
         pip install -e ".[dev]"
         ;;
     run)
