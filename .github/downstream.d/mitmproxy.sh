@@ -5,6 +5,7 @@ case "${1}" in
         git clone --depth=1 https://github.com/mitmproxy/mitmproxy
         cd mitmproxy
         git rev-parse HEAD
+        git checkout 10.2.3
         pip install -e ".[dev]"
         ;;
     run)
