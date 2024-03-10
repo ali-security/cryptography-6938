@@ -65,7 +65,7 @@ jobs:
         uses: ./.github/actions/mtime-fix
       - name: Setup python
         id: setup-python
-        uses: MatteoH2O1999/setup-python@v1
+        uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.PYTHON.VERSION }}
       - name: Setup rust
